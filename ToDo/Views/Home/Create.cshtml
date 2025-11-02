@@ -1,0 +1,26 @@
+﻿@model ToDo.Models.ToDoItem
+
+<h1>Create Task</h1>
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+    <div class="form-check">
+        <label asp-for="IsCompleted" class="form-check-label"></label>
+        <input asp-for="IsCompleted" type="checkbox" class="form-check-input" />
+    </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+}
